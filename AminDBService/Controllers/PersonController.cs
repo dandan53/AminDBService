@@ -10,12 +10,9 @@ namespace AminDBService.Controllers
     public class PersonController : ApiController
     {
         // GET api/person
-        public IEnumerable<string> Get()
+        public List<string> Get()
         {
-            //return new string[] { "value1", "value2" };
-            
-            List<string> personList = DAL.Instance.GetPersonList();
-            return personList.ToArray();
+           return DAL.Instance.GetPersonList();
         }
 
         // GET api/values/5
@@ -25,9 +22,9 @@ namespace AminDBService.Controllers
         }
 
         // POST api/values
-        public void Post(string person)
+        public bool Post(string person)
         {
-            DAL.Instance.AddPerson(person);
+            return DAL.Instance.AddPerson(person);
         }
 
         // PUT api/values/5

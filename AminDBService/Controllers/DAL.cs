@@ -35,17 +35,11 @@ namespace AminDBService.Controllers
 
         public List<string> GetPersonList()
         {
-            var retVal = new List<string>();
             var members = context.Members.ToList();
-            foreach (var member in members)
-            {
-                retVal.Add(member.Name);
-            }
-
-            return retVal;
+            return members.Select(member => member.Name).ToList();
         }
 
-        public void AddPerson(string person)
+        public bool AddPerson(string person)
         {
             if (IsPersonExist(person) == false)
             {
@@ -53,6 +47,8 @@ namespace AminDBService.Controllers
                 context.Members.Add(newMember);
                 context.SaveChanges();
             }
+
+            return true;
         }
 
         public void RemovePerson(string person)
