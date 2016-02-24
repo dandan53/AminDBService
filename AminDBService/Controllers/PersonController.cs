@@ -12,10 +12,10 @@ namespace AminDBService.Controllers
         // GET api/person
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            //return new string[] { "value1", "value2" };
             
-            //List<string> personList = DAL.Instance.GetPersonList();
-            //return personList.ToArray();
+            List<string> personList = DAL.Instance.GetPersonList();
+            return personList.ToArray();
         }
 
         // GET api/values/5
