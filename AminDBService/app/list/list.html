@@ -1,0 +1,76 @@
+﻿<!-- selecting table data area-->
+<div class="jumbotron" data-ng-controller="ListCtrl">
+    <div class="row" style="text-align: right">
+        <div>
+            
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                   <h2> רשימת אנשים </h2>
+                </div>
+            </div>
+            
+         <!--   <div class="row" style="padding-bottom: 4px">
+                
+                <div class="col-md-3">
+                    <!--   <a href="#" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-search" ng-click="search()"></span> חפש</a> -->
+                    <!-- <button type="button" class="btn btn-primary" ng-click="search()"> חפש </button> -->
+           <!--          <button class="btn btn-primary" ng-click="search()">
+                        <span class="glyphicon glyphicon-search"></span>  חפש
+                    </button>
+
+                </div>
+                
+                <div class="col-md-2">
+                    <input name="dataTables-exaple_length" aria-controls="dataTables-example" class="form-control input-sm"
+                            ng-model="selectedPerson"> </input>
+                </div>
+
+                <div class="col-md-7">
+                    <p ></p>
+                </div>
+
+            </div>
+
+        </div>
+    </div> -->
+        
+    <div class="container" dir="rtl" style="direction: rtl">
+       
+        <table class="table table-striped" dir="rtl" style="direction: rtl">
+        
+            <tbody>
+                <tr ng-repeat="person in persons">
+                    <td>{{person}}</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Paging -->
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <!-- מציג מכרזים {{lastDisplayedItemIndex}} - {{firstDisplayedItemIndex}} מתוך {{numOfItems}} מכרזים  -->
+                <div class="dataTables_info" role="status" aria-live="polite">{{dataTableInfoText}}</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate">
+                    <ul class="pagination">
+                        <li class="{{previousPageClass}}" tabindex="0" id="Li1">
+                            <a href="" ng-click="showItemsInPreviousPage()">הקודם</a>
+                        </li>
+                        <li data-ng-repeat="page in pages" id="page_{{page}}" tabindex="0">
+                            <a href="" ng-click="showItemsInPage(page)">{{ page }}</a>
+                        </li>
+                        <li class="{{nextPageClass}}" tabindex="0" id="Li2">
+                            <a href="" ng-click="showItemsInNextPage()">הבא</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+  
+</div>

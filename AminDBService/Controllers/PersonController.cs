@@ -35,7 +35,7 @@ namespace AminDBService.Controllers
         // DELETE api/values/5
         public void Delete([FromBody]string person)
         {
-            DAL.Instance.RemovePerson(person);
+            //DAL.Instance.RemovePerson(person);
         }
     }
 }

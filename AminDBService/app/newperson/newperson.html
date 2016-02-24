@@ -1,0 +1,59 @@
+﻿<div class="container" ng-controller="NewPersonCtrl" style="padding-top: 30px">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><b>הוספת אדם לרשימת רפואה שלמה</b></h3>
+                </div>
+                <div class="panel-body">
+                                  
+                    <div class="row">
+                        <input class="col-md-5 col-md-offset-4" type="text" data-ng-model="newPerson.firstName"/>
+                        <div class="col-md-3">שם פרטי:</div>
+                    </div>
+                
+                    <br/>
+
+                    <div class="row">
+                        <input class="col-md-5 col-md-offset-4" type="text" data-ng-model="newPerson.lastName"/>
+                        <div class="col-md-3">שם משפחה:</div>
+                    </div>
+
+                    <br/>
+
+                    <div class="row">
+                        <input class="col-md-5 col-md-offset-4" type="text" data-ng-model="newPerson.mother"/>
+                        <div class="col-md-3">שם האם:</div>
+                    </div>
+                    
+                    <br/>
+
+                    <div class="row">
+                        <div class="col-md-6"></div>
+                        <div class="col-md-2">נקבה</div>
+                        <input class="col-md-1" type="radio" data-ng-model="newPerson.gender" value="female"/>
+                        <div class="col-md-2">זכר</div>
+                        <input class="col-md-1" type="radio" data-ng-model="newPerson.gender" value="male"/>
+                    </div>
+
+                </div>
+                
+                <div class="panel-footer">
+                    <a href="" ng-click="addPerson()" class="btn btn-lg btn-success btn-block">הוסף</a>
+                    <!--                    <button type="button" class="btn btn-primary" ng-click="register()">הירשם</button>
+                        <button type="button" class="btn btn-default" ng-click="closeNewBidForm()">סגור</button> -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <div class="alert alert-success" id="successAlert" ng-show="isAlertSuccess === true" style="text-align: center">
+        הפעולה עברה בהצלחה! רפואה שלמה!!
+    </div>
+    
+    <div class="alert alert-danger" ng-show="isAlertDanger === true" style="text-align: center">
+        הפעולה נכשלה. נא נסו שנית.
+    </div>
+
+</div>
