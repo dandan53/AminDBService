@@ -9,7 +9,7 @@ namespace AminDBService.Controllers
 {
     public class PersonController : ApiController
     {
-        // GET api/values
+        // GET api/person
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
