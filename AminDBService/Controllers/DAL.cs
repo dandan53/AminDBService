@@ -67,12 +67,11 @@ namespace AminDBService.Controllers
 
         public bool IsPersonExist(string person)
         {
-            var member = context.Members.Single(x => x.Name.Equals(person));
-            var retVal = (member != null);
+            var members = context.Members.ToList();
+            var retVal = members.Exists(x => x.Name.Equals(person));
             return retVal;
         }
-
-
+        
 
         //private int CreateMemberId()
         //{

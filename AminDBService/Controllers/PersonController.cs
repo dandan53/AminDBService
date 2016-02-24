@@ -25,8 +25,9 @@ namespace AminDBService.Controllers
         }
 
         // POST api/values
-        public void Post([FromBody]string value)
+        public void Post(string person)
         {
+            DAL.Instance.AddPerson(person);
         }
 
         // PUT api/values/5
@@ -35,8 +36,9 @@ namespace AminDBService.Controllers
         }
 
         // DELETE api/values/5
-        public void Delete(int id)
+        public void Delete([FromBody]string person)
         {
+            DAL.Instance.RemovePerson(person);
         }
     }
 }
