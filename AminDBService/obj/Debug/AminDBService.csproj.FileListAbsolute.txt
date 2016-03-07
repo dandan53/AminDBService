@@ -64,3 +64,12 @@ c:\users\danda\documents\visual studio 2012\Projects\AminDBService\AminDBService
 c:\users\danda\documents\visual studio 2012\Projects\AminDBService\AminDBService\obj\Debug\AminDBService.csprojResolveAssemblyReference.cache
 c:\users\danda\documents\visual studio 2012\Projects\AminDBService\AminDBService\obj\Debug\AminDBService.dll
 c:\users\danda\documents\visual studio 2012\Projects\AminDBService\AminDBService\obj\Debug\AminDBService.pdb
+C:\Users\danda\documents\visual studio 2012\Projects\AminDBService\AminDBService\bin\System.Net.Http.Formatting.dll
+C:\Users\danda\documents\visual studio 2012\Projects\AminDBService\AminDBService\bin\System.Web.Cors.dll
+C:\Users\danda\documents\visual studio 2012\Projects\AminDBService\AminDBService\bin\System.Web.Http.Cors.dll
+C:\Users\danda\documents\visual studio 2012\Projects\AminDBService\AminDBService\bin\System.Web.Http.dll
+C:\Users\danda\documents\visual studio 2012\Projects\AminDBService\AminDBService\bin\System.Web.Http.WebHost.dll
+C:\Users\danda\documents\visual studio 2012\Projects\AminDBService\AminDBService\bin\System.Net.Http.Formatting.xml
+C:\Users\danda\documents\visual studio 2012\Projects\AminDBService\AminDBService\bin\System.Web.Http.xml
+C:\Users\danda\documents\visual studio 2012\Projects\AminDBService\AminDBService\bin\System.Web.Http.Cors.xml
+C:\Users\danda\documents\visual studio 2012\Projects\AminDBService\AminDBService\bin\System.Web.Http.WebHost.xml
