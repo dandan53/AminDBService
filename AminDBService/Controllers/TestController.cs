@@ -19,11 +19,12 @@ namespace AminDBService.Controllers
             return resp;
         }
 
-        public HttpResponseMessage Post()
+        public HttpResponseMessage Post(string person)
         {
+            var retVal = DAL.Instance.AddPerson(person);
             return new HttpResponseMessage()
             {
-                Content = new StringContent("POST: Test message")
+                Content = new StringContent(retVal.ToString())
             };
         }
 
