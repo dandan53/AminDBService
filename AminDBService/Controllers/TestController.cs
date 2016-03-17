@@ -11,30 +11,30 @@ namespace AminDBService.Controllers
 {
     public class TestController : ApiController
     {
-        public HttpResponseMessage Get()
-        {
-              var resp = Request.CreateResponse<List<string>>(
-            HttpStatusCode.OK,DAL.Instance.GetPersonList());
+        //public HttpResponseMessage Get()
+        //{
+        //    var resp = Request.CreateResponse<List<string>>(
+        //  HttpStatusCode.OK, DAL.Instance.GetPersonList());
 
-            return resp;
-        }
+        //    return resp;
+        //}
 
-        public HttpResponseMessage Post(string person)
-        {
-            var retVal = DAL.Instance.AddPerson(person);
-            return new HttpResponseMessage()
-            {
-                Content = new StringContent(retVal.ToString())
-            };
-        }
+        //public HttpResponseMessage Post(string person)
+        //{
+        //    var retVal = DAL.Instance.AddPerson(person);
+        //    return new HttpResponseMessage()
+        //    {
+        //        Content = new StringContent(retVal.ToString())
+        //    };
+        //}
 
-        public HttpResponseMessage Put()
-        {
-            return new HttpResponseMessage()
-            {
-                Content = new StringContent("PUT: Test message")
-            };
-        }
+        //public HttpResponseMessage Put()
+        //{
+        //    return new HttpResponseMessage()
+        //    {
+        //        Content = new StringContent("PUT: Test message")
+        //    };
+        //}
 
         private string jsonBlob = @"{
         {

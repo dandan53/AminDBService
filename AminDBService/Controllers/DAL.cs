@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Web;
 using System.Web.UI;
 using AminDBService.Models;
@@ -9,7 +10,13 @@ namespace AminDBService.Controllers
 {
     public class DAL
     {
-        private List<string> personList;
+        private const string REFUA = "refua";
+
+        private const string ILUI = "ilui";
+        
+        private List<string> iluiPersonList;
+
+        private List<string> refuaPersonList;
 
         private static DAL instance = null;
 
@@ -29,32 +36,61 @@ namespace AminDBService.Controllers
             }
         }
 
-        public List<string> GetPersonList()
+        public List<string> GetPersonList(string type)
         {
-            return personList;
+            List<string> retVal = null;
+
+            if (type.Equals(REFUA))
+            {
+                retVal = refuaPersonList;
+            }
+            else if (type.Equals(ILUI))
+            {
+                retVal = iluiPersonList;
+            }
+
+            return retVal;
         }
 
-        public bool AddPerson(string person)
+        public bool AddPerson(string person, string type)
         {
-            if (IsPersonExist(person) == false)
+            if (IsPersonExist(person, type) == false)
             {
-                personList.Add(person);
-
-                DBDAL.Instance.AddPerson(person);
+                if (type.Equals(REFUA))
+                {
+                    refuaPersonList.Add(person);
+                }
+                else if (type.Equals(ILUI))
+                {
+                    iluiPersonList.Add(person);
+                }
+                
+                DBDAL.Instance.AddPerson(person, type);
             }
 
             return true;
         }
 
-        public bool IsPersonExist(string person)
+        public bool IsPersonExist(string person, string type)
         {
-            bool retVal = personList.Exists(item => item.Equals(person));
+            bool retVal = false;
+
+            if (type.Equals(REFUA))
+            {
+                retVal = refuaPersonList.Exists(item => item.Equals(person));
+            }
+            else if (type.Equals(ILUI))
+            {
+                retVal = iluiPersonList.Exists(item => item.Equals(person));
+            }
+                
             return retVal;
         }
 
         public void Init()
         {
-            personList = DBDAL.Instance.GetPersonList();
+            iluiPersonList = DBDAL.Instance.GetPersonList(ILUI);
+            refuaPersonList = DBDAL.Instance.GetPersonList(REFUA);
         }
 
     }

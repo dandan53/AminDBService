@@ -8,9 +8,7 @@ namespace AminDBService.Controllers
 {
     public class DBDAL
     {
-         private AminDBServiceContext context = new AminDBServiceContext();
-
-        private List<string> personList = new List<string>();
+        private AminDBServiceContext context = new AminDBServiceContext();
 
         private static DBDAL instance = null;
 
@@ -32,15 +30,14 @@ namespace AminDBService.Controllers
             }
         }
 
-        public List<string> GetPersonList()
+        public List<string> GetPersonList(string type)
         {
-            var members = context.Members.ToList();
-            return members.Select(member => member.Name).ToList();
+            return (from member in context.Members where member.Type.Equals(type) select member.Name).ToList();
         }
 
-        public bool AddPerson(string person)
+        public bool AddPerson(string person, string type)
         {
-            if (IsPersonExist(person) == false)
+            if (IsPersonExist(person, type) == false)
             {
                 var newMember = new Member() {Name = person};
                 context.Members.Add(newMember);
@@ -50,20 +47,20 @@ namespace AminDBService.Controllers
             return true;
         }
 
-        public void RemovePerson(string person)
+        public void RemovePerson(string person, string type)
         {
-            if (IsPersonExist(person))
+            if (IsPersonExist(person, type))
             {
-                Member member = context.Members.Single(x => x.Name.Equals(person));
+                Member member = context.Members.Single(x => x.Name.Equals(person) && x.Type.Equals(type));
                 context.Members.Remove(member);
                 context.SaveChanges();
             }
         }
 
-        public bool IsPersonExist(string person)
+        public bool IsPersonExist(string person, string type)
         {
             var members = context.Members.ToList();
-            var retVal = members.Exists(x => x.Name.Equals(person));
+            var retVal = members.Exists(x => x.Name.Equals(person) && x.Type.Equals(type));
             return retVal;
         }
         
